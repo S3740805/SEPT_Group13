@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -64,35 +65,58 @@ public class UserController {
     //Navigation to pages
     //General
     @GetMapping({"/", "/welcome"})
-    public String welcome(Model model) {
-        return "welcome";
+    public String welcome(SecurityContextHolderAwareRequestWrapper request) {
+        // Check if the user is Admin
+        boolean isAdmin = request.isUserInRole("ROLE_ADMIN");
+        System.out.println("ROLE_ADMIN=" + isAdmin);
+        // If user is admin
+        if (isAdmin)
+            return "welcomeAdmin";
+            // If user is patient
+        else return "welcomePatient";
     }
 
+    // Access denied handling
     @GetMapping("/403")
     public String accessDenied(Model model) {
-        return "403Page";
+        return "error/403Page";
     }
 
     //Admin
     @GetMapping("/admin/doctor")
-    public String doctor(Model model) { return "admin/doctor"; }
+    public String doctor(Model model) {
+        return "admin/doctor";
+    }
+
     @GetMapping("/admin/booking")
-    public String bookingAdmin(Model model) { return "admin/bookingAdmin"; }
+    public String bookingAdmin(Model model) {
+        return "admin/bookingAdmin";
+    }
+
     @GetMapping("/admin/patient")
-    public String patientAdmin(Model model) { return "admin/patientAdmin"; }
+    public String patientAdmin(Model model) {
+        return "admin/patientAdmin";
+    }
 
     //Patient/ User
     @GetMapping("/patient/booking")
     public String booking(Model model) {
         return "patient/booking";
     }
+
     @GetMapping("/patient/profile")
     public String profile(Model model) {
         return "patient/profile";
     }
+
     @GetMapping("/patient/bookinghistory")
     public String bookingPatient(Model model) {
         return "patient/bookingHistory";
+    }
+
+    @GetMapping("/patient/about")
+    public String about(Model model) {
+        return "patient/about";
     }
 
 

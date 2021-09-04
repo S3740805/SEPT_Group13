@@ -21,7 +21,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @EnableWebMvc
-@ComponentScan({"controller","service"})
+@ComponentScan({"controller", "service"})
 public class AppConfig extends WebMvcConfigurerAdapter {
 
     @Override
@@ -32,7 +32,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 
 
     @Bean
-    public LocalSessionFactoryBean sessionFactory(){
+    public LocalSessionFactoryBean sessionFactory() {
 
         Properties properties = new Properties();
         //For mysql
@@ -46,9 +46,16 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/data");
-        dataSource.setUsername("root");
-        dataSource.setPassword("Rm!t123sept");
+
+//        FOR LOCAL RUNNING
+//        dataSource.setUrl("jdbc:mysql://localhost:3306/data?useSSL=false");
+//        dataSource.setUsername("root");
+//        dataSource.setPassword("Rm!t123sept");
+
+//        FOR DEPLOYMENT
+        dataSource.setUrl("jdbc:mysql://bfbb7cbaddb3c6:ab8cb86b@us-cdbr-east-02.cleardb.com/heroku_efc08862f4df15c?reconnect=true");
+        dataSource.setUsername("bfbb7cbaddb3c6");
+        dataSource.setPassword("ab8cb86b");
 
         sessionFactoryBean.setDataSource(dataSource);
         sessionFactoryBean.setHibernateProperties(properties);
@@ -57,8 +64,9 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory){
-        HibernateTransactionManager tx = new HibernateTransactionManager(sessionFactory);
+    public HibernateTransactionManager transactionManager() {
+        HibernateTransactionManager tx = new HibernateTransactionManager();
+        tx.setSessionFactory(sessionFactory().getObject());
         return tx;
     }
 

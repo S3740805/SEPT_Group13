@@ -24,7 +24,7 @@ public class Doctor {
                 '}';
     }
 
-    public Doctor(int id,String name, String email, String description) {
+    public Doctor(int id, String name, String email, String description) {
         this.id = id;
         this.name = name;
         this.email = email;

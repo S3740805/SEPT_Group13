@@ -2,11 +2,13 @@ package model;
 
 import model.Doctor;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 
 public class DoctorModelTest {
-    private Doctor doc = new Doctor("Linh", "Linh@gmail.com","abc");
+    private Doctor doc = new Doctor("Linh", "Linh@gmail.com", "abc");
+
     public DoctorModelTest() {
     }
 

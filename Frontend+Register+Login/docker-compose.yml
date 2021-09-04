@@ -1,0 +1,43 @@
+version: '3'
+services:
+
+#  SETUP DATABASE
+
+  sept-mysql:
+    container_name: sept-mysql
+    image: mysql/mysql-server:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'data'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 'Rm!t123sept'
+      MYSQL_ROOT_PASSWORD: 'Rm!t123sept'
+    networks:
+      - user-mysql
+
+#  SETUP SPRING BOOT APP
+
+  registration-login:
+    build: .
+    volumes:
+      - .:/app
+      - ~/.m2:/root/.m2
+    working_dir: /app
+    ports:
+      - 9090:9090
+    networks:
+      - user-mysql
+    command: mvn clean spring-boot:run
+    depends_on:
+      - sept-mysql
+
+networks:
+  user-mysql:
+
+
+#STEPS
+
+# docker network create user-mysql
+# Changing application.properties: spring.datasource.url=jdbc:mysql://sept-mysql/data?allowPublicKeyRetrieval=true&useSSL=false
+# docker-compose build
+# docker-compose up

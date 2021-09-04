@@ -33,15 +33,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
         // request login
         http
-            .authorizeRequests()
+                .authorizeRequests()
                 .antMatchers("/resources/**", "/registration").permitAll()
                 .anyRequest().authenticated()
                 .and()
-            .formLogin()
+                .formLogin()
                 .loginPage("/login")
                 .permitAll()
                 .and()
-            .logout()
+                .logout()
                 .permitAll();
     }
 

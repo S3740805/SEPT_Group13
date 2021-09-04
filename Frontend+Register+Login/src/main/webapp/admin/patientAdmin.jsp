@@ -16,6 +16,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="icon" href="https://image.flaticon.com/icons/svg/2957/2957872.svg" sizes="16x16">
     <style>
         body {
             padding-top: 3.5rem;
@@ -25,7 +26,7 @@
 </head>
 <body>
 <!--Navigation-->
-<jsp:include page="../_navigation.jsp"></jsp:include>
+<jsp:include page="../_navigationAdmin.jsp"></jsp:include>
 <div class="container">
     <!--Doctor list table-->
     <h1 style="text-align: center">Patient List</h1>
@@ -104,7 +105,14 @@
     </div>
 
 </div>
+<br><br><br><br><br><br><br>
 </body>
+<script>
+    // Hover simple hint
+    $(document).ready(function () {
+        $('body').tooltip({selector: ".btn", trigger: "hover"});
+    });
+</script>
 <script src="${contextPath}/resources/js/patientAdmin.js"></script>
 
 

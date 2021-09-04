@@ -1,9 +1,9 @@
 model/BookingModelTest.class
 TestConfig.class
 controller/DoctorControllerTest.class
+controller/PatientControllerTest.class
 MyTest.class
 controller/BookingControllerTest.class
-MyTest$2.class
 model/DoctorModelTest.class
 MyTest$1.class
 model/PatientModelTest.class

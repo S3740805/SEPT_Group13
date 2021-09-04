@@ -1,9 +1,9 @@
 const patientContainer = document.querySelector('#patient-container');
 const patientDetail = document.querySelector('#patient-details');
 const bookingContainer = document.querySelector('#bookings-container');
-const patientURL = `http://localhost:8080/patients`;
-const bookingURL = `http://localhost:8080/bookings`;
-const doctorURL = `http://localhost:8080/doctors`;
+const patientURL = `https://dabsbackend.herokuapp.com/patients`;
+const bookingURL = `https://dabsbackend.herokuapp.com/bookings`;
+const doctorURL = `https://dabsbackend.herokuapp.com/doctors`;
 let allPatients = [];
 let allDoctors = [];
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <tr><td>Medical History: </td><td>${patientData.medicalHistory}</td></tr>
                 </table>
                 `
-        }else if (e.target.dataset.action === 'booking') {
+        } else if (e.target.dataset.action === 'booking') {
             console.log('press booking')
             // get info from the chosen patient
             const patientData = allPatients.find((patient) => {
@@ -63,8 +63,8 @@ function fetchPatients() {
             for (var i = 0; i < patient.length; i++) {
                 allPatients = patient;
                 var listItem = document.createElement('tr');
-                var view = `<button  class="btn btn-outline-primary" data-id="${patient[i].id}" id="view-${patient[i].id}" data-action="view" data-toggle="modal" data-target="#patientModal">Details</button>`;
-                var booking = `<button  class="btn btn-outline-info" data-id="${patient[i].id}" id="booking-${patient[i].id}" data-action="booking" data-action="view" data-toggle="modal" data-target="#bookingModal">View Bookings</button>`;
+                var view = `<button  class="btn btn-outline-primary" data-id="${patient[i].id}" id="view-${patient[i].id}" data-action="view" data-toggle="modal" data-target="#patientModal" title="Click to see details">Details</button>`;
+                var booking = `<button  class="btn btn-outline-info" data-id="${patient[i].id}" id="booking-${patient[i].id}" data-action="booking" data-action="view" data-toggle="modal" data-target="#bookingModal" title="Click to view bookings">View Bookings</button>`;
                 listItem.innerHTML +=
                     `
                     <td>${patient[i].id}</td>
@@ -131,6 +131,7 @@ function fetchDoctors() {
     fetch(`${doctorURL}`)
         .then(response => response.json())
         .then(function (json) {
-            allDoctors =json;
+                allDoctors = json;
         })
 }
+

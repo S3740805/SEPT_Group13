@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="model.DoctorModelTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="model.DoctorModelTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="14.0.1+14"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/14.0.1/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/linhnguyen/septgroup/2408/SEPT_Group13/Backend"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/linhnguyen/deploy/Frontend/SEPT_Group13/Backend"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="https://openjdk.java.net/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -13,7 +13,7 @@
     <property name="user.country" value="VN"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/linhnguyen/septgroup/2408/SEPT_Group13/Backend"/>
+    <property name="user.dir" value="/Users/linhnguyen/deploy/Frontend/SEPT_Group13/Backend"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="14.0.1+14"/>
     <property name="os.arch" value="x86_64"/>
@@ -30,7 +30,7 @@
     <property name="java.class.version" value="58.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="10.15.5"/>
+    <property name="os.version" value="10.15.6"/>
     <property name="library.jansi.path" value="/usr/local/Cellar/maven/3.6.3_1/libexec/lib/jansi-native"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="user.home" value="/Users/linhnguyen"/>
@@ -41,7 +41,7 @@
     <property name="java.class.path" value="/usr/local/Cellar/maven/3.6.3_1/libexec/boot/plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="14"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher package"/>
     <property name="java.home" value="/usr/local/Cellar/openjdk/14.0.1/libexec/openjdk.jdk/Contents/Home"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -61,6 +61,6 @@
   <testcase classname="model.DoctorModelTest" name="testSetDescription" time="0"/>
   <testcase classname="model.DoctorModelTest" name="testGetName" time="0"/>
   <testcase classname="model.DoctorModelTest" name="testGetDescription" time="0"/>
-  <testcase classname="model.DoctorModelTest" name="testSetName" time="0.001"/>
+  <testcase classname="model.DoctorModelTest" name="testSetName" time="0"/>
   <testcase classname="model.DoctorModelTest" name="testSetEmail" time="0"/>
 </testsuite>

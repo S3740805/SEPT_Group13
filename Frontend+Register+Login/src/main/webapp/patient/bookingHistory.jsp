@@ -16,6 +16,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="icon" href="https://image.flaticon.com/icons/svg/2957/2957872.svg" sizes="16x16">
     <style>
         /* Style sheet */
         body {
@@ -27,9 +28,7 @@
         }
 
         #delete:hover {
-            color: cornflowerblue;
-            cursor: pointer;
-            text-decoration: underline;
+            color: white;
         }
 
         #delete:active {
@@ -51,10 +50,11 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Appointment Number</th>
+            <th>ID</th>
             <th>With doctor</th>
             <th>Time</th>
             <th>Date</th>
+            <th>Status</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -78,7 +78,14 @@
         </tbody>
     </table>
 </div>
+<br><br><br><br><br><br><br>
 </body>
+<script>
+    // Hover simple hint
+    $(document).ready(function () {
+        $('body').tooltip({selector: ".btn", trigger: "hover"});
+    });
+</script>
 <script src="${contextPath}/resources/js/bookingHistory.js"></script>
 
 </html>

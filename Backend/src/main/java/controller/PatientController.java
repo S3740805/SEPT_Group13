@@ -24,32 +24,44 @@ public class PatientController {
     @Autowired
     private PatientService patientService;
 
-    public PatientController(PatientService patientService) { this.patientService = patientService; }
+    public PatientController(PatientService patientService) {
+        this.patientService = patientService;
+    }
 
     // Get all patient
     @CrossOrigin
     @RequestMapping(path = "/patients", method = RequestMethod.GET)
-    public List<Patient> getPatients() { return patientService.getPatients(); }
+    public List<Patient> getPatients() {
+        return patientService.getPatients();
+    }
 
     // Create new patient
     @CrossOrigin
     @RequestMapping(path = "/patients", method = RequestMethod.POST)
-    public int add(@RequestBody Patient patient) { return patientService.addPatient(patient); }
+    public int add(@RequestBody Patient patient) {
+        return patientService.addPatient(patient);
+    }
 
     // Delete patient by patient id
     @CrossOrigin
     @RequestMapping(path = "/patients/{id}", method = RequestMethod.DELETE)
-    public void deletePatient(@PathVariable int id) { patientService.deletePatient(id); }
+    public void deletePatient(@PathVariable int id) {
+        patientService.deletePatient(id);
+    }
 
     // Update patient by patient username
     @CrossOrigin
     @RequestMapping(path = "/patients/{username}", method = RequestMethod.PUT)
-    public void updatePatientbyUser(@PathVariable String username, @RequestBody Patient patient) { patientService.updatePatientbyUser(username,patient); }
+    public void updatePatientbyUser(@PathVariable String username, @RequestBody Patient patient) {
+        patientService.updatePatientbyUser(username, patient);
+    }
 
     // Get patient by patient username
     @CrossOrigin
     @RequestMapping(path = "/patients/{username}", method = RequestMethod.GET)
-    public Patient getPatientbyUser(@PathVariable String username) { return patientService.getPatientbyUser(username); }
+    public Patient getPatientbyUser(@PathVariable String username) {
+        return patientService.getPatientbyUser(username);
+    }
 
 
     public SessionFactory getSessionFactory() {

@@ -16,32 +16,45 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="icon" href="https://image.flaticon.com/icons/svg/2957/2957872.svg" sizes="16x16">
     <style>
         /* Style sheet */
         body {
             padding-top: 3.5rem;
         }
 
-        #delete {
-            color: cornflowerblue;
+        button {
+            margin: 0 5px 0 0;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: white;
+            border-color: cornflowerblue;
+        }
+
+        #accept:hover {
+            background-color: limegreen;
+            color: white;
+            box-shadow: 0 0 5px limegreen;
+        }
+
+        #reject:hover {
+            background-color: #ffdd83;
+            color: white;
+            box-shadow: 0 0 5px #ffdd83;
         }
 
         #delete:hover {
-            color: cornflowerblue;
-            cursor: pointer;
-            text-decoration: underline;
+            background-color: red;
+            color: white;
+            box-shadow: 0 0 5px red;
         }
 
-        #delete:active {
-            color: red;
-            cursor: pointer;
-        }
     </style>
     <title>Booking List</title>
 </head>
 <body>
 <!--Navigation-->
-<jsp:include page="../_navigation.jsp"></jsp:include>
+<jsp:include page="../_navigationAdmin.jsp"></jsp:include>
 <div class="container">
     <!--        Heading-->
     <h1 style="text-align: center">All appointments</h1>
@@ -50,11 +63,12 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Appointment Number</th>
+            <th>ID</th>
             <th>Patient username</th>
             <th>With doctor</th>
             <th>Time</th>
             <th>Date</th>
+            <th>Status</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -64,7 +78,14 @@
 
 
 </div>
+<br><br><br><br><br><br><br>
 </body>
+<script>
+    // Hover simple hint
+    $(document).ready(function () {
+        $('body').tooltip({selector: ".btn", trigger: "hover"});
+    });
+</script>
 <script src="${contextPath}/resources/js/bookingAdmin.js"></script>
 
 </html>

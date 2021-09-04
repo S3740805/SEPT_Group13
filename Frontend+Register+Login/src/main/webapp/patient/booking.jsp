@@ -17,38 +17,54 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="icon" href="https://image.flaticon.com/icons/svg/2957/2957872.svg" sizes="16x16">
     <style>
         body {
             padding-top: 3.5rem;
+        }
+
+        strong:hover {
+            text-underline: blue;
+            text-decoration: underline;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 <!--Navigation-->
 <jsp:include page="../_navigation.jsp"></jsp:include>
+<!-- Body -->
 <div class="container">
-    <div id="bookingBody" class="container-fluid" >
+    <div id="bookingBody" class="container-fluid">
         <!-- Booking form -->
         <h1 style="text-align: center">Booking Form</h1>
         <br>
         <div class="container">
             <!-- Doctors -->
             <label for="doctors">
-                <h3>Available doctors:</h3>
+                <h3 title="Available doctors">Available doctors:</h3>
             </label>
             <select class="form-control" id="doctors" name="doctors" required>
-            <!-- Date -->
+                <!-- Date -->
             </select>
             <br>
             <label for="appointmentDate">
-                <h3>Select date:</h3>
+                <h3 title="Valid date are between today and one week in advance">Select date:</h3>
             </label>
             <br>
-            <input class="form-control" type="date" value="2020-08-01" id="appointmentDate" name="appointmentDate" required>
+            <input class="form-control" type="date" value="2020-08-01" id="appointmentDate" name="appointmentDate"
+                   required>
+            <small id="appointmentDateError" style="display: none;color: red">Invalid date selection. Date selected is
+                already in the past.
+                <strong onclick="appointmentDateErrorOk()" style="color: blue">x</strong></small>
+            <small id="appointmentDateErrorFuture" style="display: none;color: red">Invalid date selection. Date
+                selected is over one week in the future.
+                <strong onclick="appointmentDateErrorOk()" style="color: blue">x</strong></small>
+
             <br>
             <!-- Time -->
             <label for="times">
-                <h3>Select time:</h3>
+                <h3 title="Select time">Select time:</h3>
             </label>
 
             <select class="form-control" id="times" name="times" required>
@@ -79,16 +95,26 @@
             <br>
 
             <div class="container-fluid" style="text-align: center">
-                <button class="btn btn-primary" type="submit" onclick="checkAvailable()" value="Book Appointment">Book Appointment</button>
+                <button class="btn btn-primary" type="submit" onclick="checkAvailable()" value="Book Appointment"
+                        title="Click here to book appointment">Book Appointment
+                </button>
             </div>
 
-            <br>
+            <br><br><br><br><br><br><br>
 
         </div>
     </div>
 </div>
 </body>
+
 </html>
 
 <script src="${contextPath}/resources/js/booking.js">
+
+</script>
+<script>
+    // Hover simple hint
+    $(document).ready(function () {
+        $('body').tooltip({selector: ".btn", trigger: "hover"});
+    });
 </script>

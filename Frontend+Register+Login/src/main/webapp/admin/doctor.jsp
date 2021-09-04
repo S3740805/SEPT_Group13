@@ -16,6 +16,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="icon" href="https://image.flaticon.com/icons/svg/2957/2957872.svg" sizes="16x16">
     <style>
         body {
             padding-top: 3.5rem;
@@ -25,31 +26,65 @@
 </head>
 <body>
 <!--Navigation-->
-<jsp:include page="../_navigation.jsp"></jsp:include>
+<jsp:include page="../_navigationAdmin.jsp"></jsp:include>
 <div class="container">
     <!--Add doctor form-->
-    <h3>Add new doctor</h3>
-    <div id='add-doctor'>
-        <form id="doctor-form">
-            <div class="input-group mb-3">
-                <input required type="text" name="name" id="name" placeholder="Name" class="form-control">
-                <input required type="email" name="email" id="email" placeholder="Email" class="form-control">
-                <select class="form-control" id="description" name="description" required>
-                    <option value="Bone">Bone</option>
-                    <option value="General Physician">General Physician</option>
-                    <option value="Heart">Heart</option>
-                    <option value="Lung">Lung</option>
-                    <option value="Neurology">Neurology</option>
-                </select>
+    <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#add-doctor"
+            title="Click to add new doctor">Add new doctor <i class="fas fa-user-plus"></i></button>
+    <div id='add-doctor' class="collapse">
+        <form class="form-horizontal" id="doctor-form">
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-2" for="name">Name:</label>
+                <div class="col-sm-10">
+                    <input required type="text" name="name" id="name" class="form-control" pattern="^[A-Za-z ]+$"
+                           title="Please input alphabet characters only"
+                           placeholder="Enter name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2" for="email">Email:</label>
+                <div class="col-sm-10">
+                    <input required type="email" name="email" id="email" class="form-control" placeholder="Enter email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2" for="description">Description:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="description" name="description" required>
+                        <option value="Bone">Bone</option>
+                        <option value="General Physician">General Physician</option>
+                        <option value="Heart">Heart</option>
+                        <option value="Lung">Lung</option>
+                        <option value="Neurology">Neurology</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row justify-content-center">
                 <div class="input-group-prepend">
-                    <input class="btn btn-outline-primary" type="submit" value="Add Doctor">
+                    <input class="btn btn-outline-primary" type="submit" value="Add Doctor" title="Submit">
                 </div>
             </div>
         </form>
+
     </div>
     <br>
-    <div id="spoiler" role="aria-hidden">
-        <div id="edit-form"></div>
+    <div>
+        <div class="modal" id="editForm">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit doctor</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div id="edit-form"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <br>
     <!--Doctor list table-->
@@ -68,6 +103,7 @@
         <tbody id="doctor-container">
         </tbody>
     </table>
+
     <!-- Show Bookings Modal -->
     <div class="modal" id="myModal">
         <div class="modal-dialog modal-lg">
@@ -80,7 +116,7 @@
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body" >
+                <div class="modal-body">
                     <table class="table" id="bookings-table">
                         <thead>
                         <tr>
@@ -104,8 +140,15 @@
         </div>
     </div>
 </div>
+<br><br><br><br><br><br><br>
 </body>
-<script src="${contextPath}/resources/js/doctor.js"></script>
+<script>
+    // Hover simple hint
+    $(document).ready(function () {
+        $('body').tooltip({selector: ".btn", trigger: "hover"});
+    });
+</script>
 
+<script src="${contextPath}/resources/js/doctor.js"></script>
 
 </html>

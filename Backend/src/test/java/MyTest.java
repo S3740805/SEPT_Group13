@@ -16,62 +16,35 @@ import java.util.List;
 
 public class MyTest {
 
-	@Test
-	public void testDoctor() throws IOException {
+    @Test
+    public void testDoctor() throws IOException {
 
-		try{
-			URL url = new URL(TestConfig.URL+"doctors");
-			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
-			String line = "";
-			StringBuilder stringBuilder = new StringBuilder();
+        try {
+            URL url = new URL(TestConfig.URL + "doctors");
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+            String line = "";
+            StringBuilder stringBuilder = new StringBuilder();
 
-			while((line = bufferedReader.readLine()) !=null){
-				stringBuilder.append(line);
-			}
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
 
-			Gson gson = new Gson();
-			String json = stringBuilder.toString();
-			List<Doctor> doctors = gson.fromJson(json, new TypeToken<List<Doctor>>(){}.getType());
-			System.out.println(doctors.get(0).getName());
-			//Actual value based on the database
-			//Assert.assertEquals(doctors.get(0).getName(), "Linh Nguyen");
-
-
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Test
-	public void testPation() throws IOException{
-		try{
-			URL url = new URL(TestConfig.URL+"patients");
-			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
-			String line = "";
-			StringBuilder stringBuilder = new StringBuilder();
-
-			while((line = bufferedReader.readLine()) !=null){
-				stringBuilder.append(line);
-			}
-
-			Gson gson = new Gson();
-			String json = stringBuilder.toString();
-			List<Patient> patients = gson.fromJson(json, new TypeToken<List<Patient>>(){}.getType());
-			System.out.println(patients.get(0).getFname());
-			//Actual value based on the database
-			//Assert.assertEquals(doctors.get(0).getFName(), "Cuong");
+            Gson gson = new Gson();
+            String json = stringBuilder.toString();
+            List<Doctor> doctors = gson.fromJson(json, new TypeToken<List<Doctor>>() {
+            }.getType());
+            System.out.println(doctors.get(0).getName());
+            //Actual value based on the database
+            //Assert.assertEquals(doctors.get(0).getName(), "Linh Nguyen");
 
 
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
 

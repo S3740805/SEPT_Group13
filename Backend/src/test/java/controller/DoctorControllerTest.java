@@ -98,9 +98,9 @@ public class DoctorControllerTest {
     // Test PUT doctor by ID
     @Test
     public void shouldUpdateDoctor() throws Exception {
-        Doctor doctor = new Doctor(1,"linh1", null, null);
+        Doctor doctor = new Doctor(1, "linh1", null, null);
         given(doctorService.addDoctor(doctor)).willReturn(doctor.getId());
-        doNothing().when(doctorService).updateDoctor(doctor.getId(),doctor);
+        doNothing().when(doctorService).updateDoctor(doctor.getId(), doctor);
         mockMvc.perform(
                 put("/doctors/{id}", doctor.getId())
                         .contentType(MediaType.APPLICATION_JSON_UTF8)

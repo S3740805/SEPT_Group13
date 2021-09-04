@@ -1,8 +1,8 @@
-/Users/linhnguyen/septgroup/M2/SEPT_Group13/Backend/src/test/java/model/PatientModelTest.java
-/Users/linhnguyen/septgroup/M2/SEPT_Group13/Backend/src/test/java/controller/DoctorControllerTest.java
-/Users/linhnguyen/septgroup/M2/SEPT_Group13/Backend/src/test/java/controller/PatientControllerTest.java
-/Users/linhnguyen/septgroup/M2/SEPT_Group13/Backend/src/test/java/TestConfig.java
-/Users/linhnguyen/septgroup/M2/SEPT_Group13/Backend/src/test/java/model/DoctorModelTest.java
-/Users/linhnguyen/septgroup/M2/SEPT_Group13/Backend/src/test/java/model/BookingModelTest.java
-/Users/linhnguyen/septgroup/M2/SEPT_Group13/Backend/src/test/java/controller/BookingControllerTest.java
-/Users/linhnguyen/septgroup/M2/SEPT_Group13/Backend/src/test/java/MyTest.java
+/Users/linhnguyen/deploy/Frontend/SEPT_Group13/Backend/src/test/java/TestConfig.java
+/Users/linhnguyen/deploy/Frontend/SEPT_Group13/Backend/src/test/java/controller/DoctorControllerTest.java
+/Users/linhnguyen/deploy/Frontend/SEPT_Group13/Backend/src/test/java/model/PatientModelTest.java
+/Users/linhnguyen/deploy/Frontend/SEPT_Group13/Backend/src/test/java/controller/BookingControllerTest.java
+/Users/linhnguyen/deploy/Frontend/SEPT_Group13/Backend/src/test/java/controller/PatientControllerTest.java
+/Users/linhnguyen/deploy/Frontend/SEPT_Group13/Backend/src/test/java/model/DoctorModelTest.java
+/Users/linhnguyen/deploy/Frontend/SEPT_Group13/Backend/src/test/java/MyTest.java
+/Users/linhnguyen/deploy/Frontend/SEPT_Group13/Backend/src/test/java/model/BookingModelTest.java

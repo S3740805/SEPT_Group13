@@ -28,12 +28,16 @@ public class DoctorController {
     // Get all doctors
     @CrossOrigin
     @RequestMapping(path = "/doctors", method = RequestMethod.GET)
-    public List<Doctor> getDoctor() {return doctorService.getAllDoctors();}
+    public List<Doctor> getDoctor() {
+        return doctorService.getAllDoctors();
+    }
 
     // Get doctor by username of ADMIN
     @CrossOrigin
     @RequestMapping(path = "/doctors/{userName}", method = RequestMethod.GET)
-    public List<Doctor> getDoctorbyUser(@PathVariable String userName) { return doctorService.getDoctorbyUser(userName); }
+    public List<Doctor> getDoctorbyUser(@PathVariable String userName) {
+        return doctorService.getDoctorbyUser(userName);
+    }
 
     // Create new doctor
     @CrossOrigin
@@ -52,7 +56,9 @@ public class DoctorController {
     // Update doctor by doctor id
     @CrossOrigin
     @RequestMapping(path = "/doctors/{id}", method = RequestMethod.PUT)
-    public void updateDoctor(@PathVariable int id, @RequestBody Doctor doctor) { doctorService.updateDoctor(id,doctor); }
+    public void updateDoctor(@PathVariable int id, @RequestBody Doctor doctor) {
+        doctorService.updateDoctor(id, doctor);
+    }
 
 
     public SessionFactory getSessionFactory() {

@@ -39,5 +39,8 @@
 > Username: admin
 > Password: admin123
 
+`Default PATIENT account:`
+> Username: patient
+> Password: patient123
     
    

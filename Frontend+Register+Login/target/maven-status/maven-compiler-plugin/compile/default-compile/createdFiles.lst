@@ -1,4 +1,5 @@
 com/web/DataSeeding.class
+com/web/HandleErrorController.class
 com/model/Role.class
 com/service/UserDetailsServiceImpl.class
 com/service/SecurityService.class

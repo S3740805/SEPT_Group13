@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.sql.Time;
 
 @Entity
-@Table(name="booking")
+@Table(name = "booking")
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,10 +15,10 @@ public class Booking {
     private Time time;
     private Date date;
     private String userName;
+    private String status;
 
 //  @ManyToOne(cascade = CascadeType.ALL)
 //  private Time time;
-
 
 
     public int getId() {
@@ -68,6 +68,15 @@ public class Booking {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public Booking() {
     }
 

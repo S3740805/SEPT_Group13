@@ -30,7 +30,7 @@ public class UserValidator implements Validator {
             errors.rejectValue("username", "Size.userForm.username");
         }
         // User special character
-        if (!user.getUsername().matches("[0-9a-zA-Z_.-]*")){
+        if (!user.getUsername().matches("[0-9a-zA-Z_.-]*")) {
             errors.rejectValue("username", "Invalid.username");
         }
         // username already taken

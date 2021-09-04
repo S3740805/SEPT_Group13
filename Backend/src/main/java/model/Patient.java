@@ -8,7 +8,7 @@ import java.sql.Date;
 public class Patient {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column
     private String name;
@@ -45,7 +45,7 @@ public class Patient {
     }
 
     public Patient(String username, String name, String fname, String lname, Date dob, String gender, String address, String email, Number phone, String allergies, String bloodType, String healthStatus, String medicalHistory) {
-        this.username= username;
+        this.username = username;
         this.name = name;
         this.fname = fname;
         this.lname = lname;
@@ -59,7 +59,6 @@ public class Patient {
         this.healthStatus = healthStatus;
         this.medicalHistory = medicalHistory;
     }
-
 
 
     @Override
